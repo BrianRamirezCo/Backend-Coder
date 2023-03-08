@@ -1,31 +1,39 @@
-class ProductManager{
+listProducts=[
+    {
+        id: 01,
+        title:"producto prueba3",
+        description:"Este es un producto prueba",
+        price:200,
+        thumbnail:"Sin imagen",
+        code:"001",
+        stock:25
+    }
+]
 
-    products = [];
+
+class ProductManager{
+    constructor(){
+    this.products = listProducts;}
 
 getProducts(){
-    let listProducts = this.products;
-    if (listProducts.length === -1) {
-        return [];
+        return this.products;
+}
+
+addProduct(newProd){
+    const prod = this.products.find(product => product.code === newProd.code)
+    if (prod) {
+        return "Product already exists with code "
+    }
+
+    if (this.products.length === 0) {
+        this.products.push( {id: 1, ...newProd } )
     } else {
-        return listProducts;
+        this.products.push( {id: this.products[this.products.length-1].id + 1  , ...newProd } )
     }
-    
-}
-
-addProduct(product){
-    let listProducts = this.products;
-    let newId;
-
-    if(listProducts.length == 0){
-        newId = 1
-    }else {
-        newId = listProducts[listProducts.length - 1].id + 1;
     }
 
-    const newProducto = {id: newId, ...product}
-    listProducts.push(newProducto);
-    return newId;
-}
+
+
 getProductById(id){
     const prod = this.products;
     const product = prod.find(x => x.id === id)
@@ -40,15 +48,12 @@ getProductById(id){
 
 const manegeProducts = new ProductManager()
 
-//console.log(manegeProducts.getProducts());
-
-console.log(manegeProducts.addProduct({title:"producto prueba",description:"Este es un producto prueba",price:200,thumbnail:"Sin imagen",
-code:"abc123",stock:25}));
-console.log(manegeProducts.addProduct({title:"producto prueba2",description:"Este es un producto prueba",price:200,thumbnail:"Sin imagen",
-code:"abc123",stock:25}));
-console.log(manegeProducts.addProduct({title:"producto prueba3",description:"Este es un producto prueba",price:200,thumbnail:"Sin imagen",
-code:"abc123",stock:25}));
-
-
+console.log(manegeProducts.addProduct({
+    title:"producto prueba2",
+    description:"Este es un producto prueba2",
+    price:200,
+    thumbnail:"Sin imagen",
+    code:"002",
+    stock:25
+}));
 console.log(manegeProducts.getProducts());
-console.log(manegeProducts.getProductById(3));
