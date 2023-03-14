@@ -8,40 +8,31 @@ getProducts(){
 }
 
 addProduct(newProd){
-    const keysValidator = ["id","title","description","price","thumbnail","code","stock"];
-    
+    // const keysValidator = ["id","title","description","price","thumbnail","code","stock"];
 
+    if (
+        !newProd.title ||
+        !newProd.description ||
+        !newProd.price ||
+        !newProd.thumbnail ||
+        !newProd.code ||
+        !newProd.stock
+    ) {
+        return "Missing required fields"
+    }
+    
     const prod = this.products.find(product => product.code === newProd.code)
     if (prod) {
         return "Product already exists with code "
     }
-    
     if (this.products.length === 0) {
         this.products.push( {id: 1, ...newProd } )
-    } else {
+    }else {
         this.products.push( {id: this.products[this.products.length-1].id + 1  , ...newProd } )
     }
+
     
-    const producto =this.products.forEach( (producto) =>console.log(Object.keys(producto)));
-    console.log(keysValidator)
-    console.log(producto);
-
-
-    const isEqual = (keysValidator.length === producto.length) &&
-            keysValidator.every((value, index) => value === producto[index])
-
-    console.log(isEqual);
-    
-    
-
-
-    // console.log(Object.keys(keysValidator))
-    // // console.log(Object.keys(products))
-    // console.log(this.products);
 }
-
-
-
 getProductById(id){
     const product = this.products.find(x => x.id === id)
 
@@ -57,11 +48,11 @@ getProductById(id){
 const manegeProducts = new ProductManager()
 
 console.log(manegeProducts.addProduct({
-   title: "producto prueba2",
-   description: "Este es un producto prueba2",
-   price:200,
-   thumbnail: "Sin imagen",
-   code: "002",
-   stock: 125
+title: "producto prueba2",
+description: "Este es un producto prueba2",
+price:200,
+thumbnail: "Sin imagen",
+code: "002",
+stock:125
 }));
 console.log(manegeProducts.getProducts());
