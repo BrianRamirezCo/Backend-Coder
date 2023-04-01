@@ -8,8 +8,6 @@ getProducts(){
 }
 
 addProduct(newProd){
-    // const keysValidator = ["id","title","description","price","thumbnail","code","stock"];
-
     if (
         !newProd.title ||
         !newProd.description ||
@@ -39,7 +37,7 @@ getProductById(id){
     if(!product){
     console.log("Id not found");
     }else{
-        return;
+        return null;
     }
         return product
     }
@@ -47,12 +45,12 @@ getProductById(id){
 
 const manegeProducts = new ProductManager()
 
-console.log(manegeProducts.addProduct({
+manegeProducts.addProduct({
 title: "producto prueba2",
 description: "Este es un producto prueba2",
 price:200,
 thumbnail: "Sin imagen",
 code: "002",
 stock:125
-}));
+});
 console.log(manegeProducts.getProducts());

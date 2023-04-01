@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "producto prueba1",
+    "description": "Este es un producto prueba1",
+    "price": 1500,
+    "thumbnail": "Sin imagen1",
+    "code": "006",
+    "stock": 456
+  },
+  {
+    "id": 2,
+    "title": "producto prueba5",
+    "description": "Este es un producto prueba4",
+    "price": 200,
+    "thumbnail": "Sin imagen6",
+    "code": "006",
+    "stock": 456
+  },
+  {
+    "id": 3,
+    "title": "producto prueba7",
+    "description": "Este es un producto prueba3",
+    "price": 222,
+    "thumbnail": "Sin imagen1",
+    "code": "0001",
+    "stock": 478
+  },
+  {
+    "id": 4,
+    "title": "producto prueba12",
+    "description": "Este es un producto prueba54",
+    "price": 200,
+    "thumbnail": "Sin imagen33",
+    "code": "009",
+    "stock": 478
+  }
+]
